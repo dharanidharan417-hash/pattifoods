@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaatiFood - Tradition in Every Spoon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #37353E;
+            --medium: #44444E;
+            --accent: #715A5A;
+            --light: #D3DAD9;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f9f9f9;
+        }
+        
+        .traditional-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--medium) 100%);
+        }
+        
+        .product-gradient-1 {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--medium) 100%);
+        }
+        
+        .product-gradient-2 {
+            background: linear-gradient(135deg, var(--accent) 0%, #8a6e6e 100%);
+        }
+        
+        .product-gradient-3 {
+            background: linear-gradient(135deg, var(--medium) 0%, #5a5a6e 100%);
+        }
+        
+        .product-gradient-4 {
+            background: linear-gradient(135deg, #5a5a71 0%, var(--accent) 100%);
+        }
+        
+        .product-gradient-5 {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--dark) 100%);
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .glow {
+            box-shadow: 0 0 20px rgba(113, 90, 90, 0.3);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .scroll-gallery {
+            animation: scroll 30s linear infinite;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .review-card {
+            transition: all 0.3s ease;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 1s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .rotate {
+            animation: rotate 10s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .countdown {
+            animation: countdown 1s ease-out;
+        }
+        
+        @keyframes countdown {
+            0% { transform: scale(1.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .deal-of-day {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--dark) 100%);
+        }
+        
+        .trending-products {
+            background: linear-gradient(135deg, var(--light) 0%, #e8efee 100%);
+        }
+        
+        .newsletter {
+            background: linear-gradient(135deg, var(--medium) 0%, var(--dark) 100%);
+        }
+        
+        .header-curve {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            transition: all 0.3s ease;
+            background: rgba(55, 53, 62, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-curve::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: white;
+            border-radius: 50% 50% 0 0;
+            z-index: -1;
+        }
+        
+        .about-bg {
+            background: linear-gradient(135deg, var(--light) 0%, #e8efee 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23715a5a' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(113, 90, 90, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .review-section {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--medium) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .review-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, var(--light) 0%, #e8efee 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23715a5a' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Enhanced Fixed Header with Curved Design -->
+    <nav class="header-curve">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-[#D3DAD9] rounded-full flex items-center justify-center text-[#715A5A] font-bold text-xl">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <span class="ml-3 text-xl font-bold text-white traditional-font">Paati<span class="text-[#D3DAD9]">Food</span></span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-white hover:text-[#D3DAD9] font-medium transition-colors">Home</a>
+                    <a href="#products" class="text-white hover:text-[#D3DAD9] font-medium transition-colors">Shop</a>
+                    <a href="#about" class="text-white hover:text-[#D3DAD9] font-medium transition-colors">About</a>
+                    <a href="#reviews" class="text-white hover:text-[#D3DAD9] font-medium transition-colors">Reviews</a>
+                    <a href="#contact" class="text-white hover:text-[#D3DAD9] font-medium transition-colors">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="#" class="text-white hover:text-[#D3DAD9]">
+                            <i class="fas fa-search text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D3DAD9] relative">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-[#D3DAD9] text-[#715A5A] text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D3DAD9]">
+                            <i class="fas fa-user text-xl"></i>
+                        </a>
+                    </div>
+                    <a href="https://wa.me/918300411270" class="bg-[#D3DAD9] text-[#715A5A] px-4 py-2 rounded-full flex items-center hover:bg-white transition-colors pulse">
+                        <i class="fab fa-whatsapp mr-2"></i> Order Now
+                    </a>
+                    <button class="md:hidden text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Professional E-commerce Hero Section -->
+    <section id="home" class="pt-32 pb-16 hero-gradient text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 traditional-font leading-tight">Tradition in Every Spoon</h1>
+                    <p class="text-xl mb-6">Pure • Healthy • Millet-Based Goodness</p>
+                    <p class="text-lg mb-8 opacity-90">Made With Love… Just Like Paati!</p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <a href="#products" class="bg-white text-[#37353E] px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors glow flex items-center">
+                            <i class="fas fa-shopping-bag mr-2"></i> Shop Now
+                        </a>
+                        <a href="https://wa.me/918300411270" class="border-2 border-white text-white px-6 py-3 rounded-lg font-bold hover:bg-white hover:text-[#37353E] transition-colors bounce flex items-center">
+                            <i class="fab fa-whatsapp mr-2"></i> WhatsApp Order
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 p-4 rounded-lg backdrop-blur-sm">
+                        <p class="text-lg flex items-center mb-2"><i class="fas fa-check-circle mr-2 text-[#D3DAD9]"></i> 100% Natural • No Chemicals • No Preservatives</p>
+                        <p class="text-lg flex items-center"><i class="fas fa-check-circle mr-2 text-[#D3DAD9]"></i> Millet-Based Instant Mixes for Your Daily Healthy Living</p>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 flex justify-center fade-in">
+                    <div class="relative">
+                        <div class="w-80 h-80 bg-white rounded-2xl overflow-hidden shadow-2xl float-animation border-4 border-[#D3DAD9]">
+                            <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Traditional South Indian Food" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -top-4 -right-4 bg-[#715A5A] text-white px-4 py-2 rounded-lg shadow-lg rotate">
+                            <span class="font-bold">100% Natural</span>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 bg-[#44444E] text-white px-4 py-2 rounded-lg shadow-lg rotate">
+                            <span class="font-bold">Homemade</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Bar -->
+    <section class="py-6 bg-[#37353E] text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-shipping-fast text-2xl mb-2 text-[#D3DAD9]"></i>
+                    <h3 class="font-bold">Free Shipping</h3>
+                    <p class="text-sm opacity-80">On orders over ₹999</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-undo-alt text-2xl mb-2 text-[#D3DAD9]"></i>
+                    <h3 class="font-bold">Easy Returns</h3>
+                    <p class="text-sm opacity-80">30-day return policy</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-shield-alt text-2xl mb-2 text-[#D3DAD9]"></i>
+                    <h3 class="font-bold">Secure Payment</h3>
+                    <p class="text-sm opacity-80">100% secure transactions</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-headset text-2xl mb-2 text-[#D3DAD9]"></i>
+                    <h3 class="font-bold">24/7 Support</h3>
+                    <p class="text-sm opacity-80">We're here to help</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deal of the Day -->
+    <section class="py-12 deal-of-day text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-4 traditional-font">Deal of the Day</h2>
+                    <p class="text-xl mb-6">Herbal Health Mix - Limited Time Offer</p>
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="bg-white text-[#37353E] rounded-lg p-3 text-center">
+                            <span class="text-2xl font-bold countdown">02</span>
+                            <p class="text-sm">Days</p>
+                        </div>
+                        <div class="bg-white text-[#37353E] rounded-lg p-3 text-center">
+                            <span class="text-2xl font-bold countdown">12</span>
+                            <p class="text-sm">Hours</p>
+                        </div>
+                        <div class="bg-white text-[#37353E] rounded-lg p-3 text-center">
+                            <span class="text-2xl font-bold countdown">45</span>
+                            <p class="text-sm">Minutes</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-3xl font-bold mr-4">₹249</span>
+                        <span class="text-xl line-through opacity-70">₹299</span>
+                        <span class="ml-4 bg-[#D3DAD9] text-[#37353E] px-2 py-1 rounded text-sm font-bold">17% OFF</span>
+                    </div>
+                    <a href="#products" class="mt-6 bg-white text-[#37353E] px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors inline-block">
+                        Shop Now
+                    </a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 bg-white rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Herbal Health Mix" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -top-4 -right-4 bg-[#D3DAD9] text-[#37353E] px-3 py-1 rounded-lg shadow-lg">
+                            <span class="font-bold">Limited Stock</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Products -->
+    <section class="py-16 trending-products">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 traditional-font">Trending Products</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Our most loved traditional South Indian snacks</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg fade-in">
+                    <div class="h-48 product-gradient-1 flex items-center justify-center relative">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2 traditional-font">Herbal Health Mix</h3>
+                            <p class="text-white text-opacity-90">Immunity Booster</p>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-[#D3DAD9] text-[#37353E] px-2 py-1 rounded text-xs font-bold">
+                            BESTSELLER
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold text-gray-800">₹299</span>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">A powerhouse of herbs, nuts, and grains for immunity and energy.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://wa.me/918300411270?text=Hi,%20I%20would%20like%20to%20order%20Herbal%20Health%20Mix" class="bg-[#715A5A] text-white px-4 py-2 rounded-lg hover:bg-[#5a4a4a] transition-colors flex items-center">
+                                <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-[#715A5A]">
+                                <i class="far fa-heart text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg fade-in">
+                    <div class="h-48 product-gradient-2 flex items-center justify-center relative">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2 traditional-font">Pancake Mix</h3>
+                            <p class="text-white text-opacity-90">Millet-based</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold text-gray-800">₹249</span>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">Soft, fluffy, nutritious pancakes made in minutes!</p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://wa.me/918300411270?text=Hi,%20I%20would%20like%20to%20order%20Pancake%20Mix" class="bg-[#715A5A] text-white px-4 py-2 rounded-lg hover:bg-[#5a4a4a] transition-colors flex items-center">
+                                <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-[#715A5A]">
+                                <i class="far fa-heart text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg fade-in">
+                    <div class="h-48 product-gradient-3 flex items-center justify-center relative">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2 traditional-font">Samai Pongal Mix</h3>
+                            <p class="text-white text-opacity-90">Temple-style Pongal</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold text-gray-800">₹279</span>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">Temple-style Pongal made in 10 minutes with Little Millet.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://wa.me/918300411270?text=Hi,%20I%20would%20like%20to%20order%20Samai%20Pongal%20Mix" class="bg-[#715A5A] text-white px-4 py-2 rounded-lg hover:bg-[#5a4a4a] transition-colors flex items-center">
+                                <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-[#715A5A]">
+                                <i class="far fa-heart text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg fade-in">
+                    <div class="h-48 product-gradient-4 flex items-center justify-center relative">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2 traditional-font">Multi Millet Adai Mix</h3>
+                            <p class="text-white text-opacity-90">Protein-rich</p>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-[#D3DAD9] text-[#37353E] px-2 py-1 rounded text-xs font-bold">
+                            NEW
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold text-gray-800">₹269</span>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">Crispy, protein-rich adai with 9 millets & dals.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://wa.me/918300411270?text=Hi,%20I%20would%20like%20to%20order%20Multi%20Millet%20Adai%20Mix" class="bg-[#715A5A] text-white px-4 py-2 rounded-lg hover:bg-[#5a4a4a] transition-colors flex items-center">
+                                <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-[#715A5A]">
+                                <i class="far fa-heart text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#products" class="bg-[#37353E] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#2a2830] transition-colors inline-flex items-center">
+                    View All Products <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scrolling Images Section -->
+    <section class="py-12 bg-[#D3DAD9] overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10 traditional-font">Our Traditional Ingredients & Process</h2>
+            <div class="relative">
+                <div class="flex space-x-6 scroll-gallery">
+                    <!-- Duplicated images for seamless scroll -->
+                    <div class="flex space-x-6">
+                        <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Traditional South Indian Food" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Traditional South Indian Snacks" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1071&q=80" alt="Indian Spices" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt="Traditional Cooking" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="South Indian Cuisine" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <!-- Duplicate for seamless looping -->
+                    <div class="flex space-x-6">
+                        <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Traditional South Indian Food" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Traditional South Indian Snacks" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1071&q=80" alt="Indian Spices" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt="Traditional Cooking" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="South Indian Cuisine" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 newsletter text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4 traditional-font">Join Our Community</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Subscribe to our newsletter and get 10% off your first order plus exclusive recipes and health tips!</p>
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-lg text-gray-800 focus:outline-none">
+                <button class="bg-[#715A5A] px-6 py-3 rounded-r-lg font-bold hover:bg-[#5a4a4a] transition-colors">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Redesigned About Us Section -->
+    <section id="about" class="py-20 about-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 traditional-font">About PaatiFood</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Where Tradition Meets Health</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 fade-in">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 traditional-font">Our Story</h3>
+                        <p class="text-gray-600 mb-6">At PaatiFood, we bring back the forgotten recipes of our grandmothers. Our herbal health mixes and millet-based instant foods are prepared using handpicked natural ingredients and traditional roasting methods.</p>
+                        <p class="text-gray-600 mb-6">Our mission is to give every home a healthy, quick, and truly traditional food option—perfect for today's busy lifestyle.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mt-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-[#715A5A] mr-2"></i>
+                                <span class="text-gray-700">Zero Preservatives</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-[#715A5A] mr-2"></i>
+                                <span class="text-gray-700">Zero Artificial Flavours</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-[#715A5A] mr-2"></i>
+                                <span class="text-gray-700">100% Natural Ingredients</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-[#715A5A] mr-2"></i>
+                                <span class="text-gray-700">Traditional Roasting Methods</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 fade-in">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="feature-card text-center">
+                            <div class="w-16 h-16 mx-auto bg-[#D3DAD9] rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-leaf text-2xl text-[#715A5A]"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">100% Natural</h4>
+                            <p class="text-gray-600 text-sm">No preservatives or artificial ingredients</p>
+                        </div>
+                        
+                        <div class="feature-card text-center">
+                            <div class="w-16 h-16 mx-auto bg-[#D3DAD9] rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-heart text-2xl text-[#715A5A]"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">Homemade</h4>
+                            <p class="text-gray-600 text-sm">Prepared with traditional methods</p>
+                        </div>
+                        
+                        <div class="feature-card text-center">
+                            <div class="w-16 h-16 mx-auto bg-[#D3DAD9] rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-award text-2xl text-[#715A5A]"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">Premium Quality</h4>
+                            <p class="text-gray-600 text-sm">Only the finest ingredients used</p>
+                        </div>
+                        
+                        <div class="feature-card text-center">
+                            <div class="w-16 h-16 mx-auto bg-[#D3DAD9] rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-shipping-fast text-2xl text-[#715A5A]"></i>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">Fast Delivery</h4>
+                            <p class="text-gray-600 text-sm">Fresh products delivered to your door</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Products Section -->
+    <section id="products" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 traditional-font">Our Products</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Authentic South Indian snacks made with traditional recipes and the finest ingredients.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg fade-in">
+                    <div class="h-48 product-gradient-1 flex items-center justify-center">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2 traditional-font">Herbal Health Mix</h3>
+                            <p class="text-white text-opacity-90">Immunity Booster</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">A powerhouse of herbs, nuts, and grains. Strengthens immunity, improves digestion, and keeps you energetic throughout the day.</p>
+                        <p class="text-gray-700 font-semibold mb-2">Perfect for: Kids, adults, elders.</p>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-xl font-bold text-gray-800">₹299</span>
+                            <a href="https://wa.me/918300411270?text=Hi,%20I%20would%20like%20to%20order%20Herbal%20Health%20Mix" class="bg-[#715A5A] text-white px-4 py-2 rounded-lg hover:bg-[#5a4a4a] transition-colors">
+                                Order Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg fade-in">
+                    <div class="h-48 product-gradient-2 flex items-center justify-center">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2 traditional-font">Pancake Mix</h3>
+                            <p class="text-white text-opacity-90">Millet-based</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Soft, fluffy, nutritious pancakes made in minutes! A favourite for kids and a guilt-free treat for adults.</p>
+                        <p class="text-gray-700 font-semibold mb-2">Benefits: High fibre, gluten-free, rich in minerals.</p>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-xl font-bold text-gray-800">₹249</span>
+                            <a href="https://wa.me/918300411270?text=Hi,%20I%20would%20like%20to%20order%20Pancake%20Mix" class="bg-[#715A5A] text-white px-4 py-2 rounded-lg hover:bg-[#5a4a4a] transition-colors">
+                                Order Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg fade-in">
+                    <div class="h-48 product-gradient-3 flex items-center justify-center">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2 traditional-font">Samai Pongal Mix</h3>
+                            <p class="text-white text-opacity-90">Temple-style Pongal</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Temple-style Pongal made in 10 minutes! Made with Little Millet (Samai) + pure spices roasted traditionally.</p>
+                        <p class="text-gray-700 font-semibold mb-2">Benefits: Diabetes-friendly, easy digestion.</p>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-xl font-bold text-gray-800">₹279</span>
+                            <a href="https://wa.me/918300411270?text=Hi,%20I%20would%20like%20to%20order%20Samai%20Pongal%20Mix" class="bg-[#715A5A] text-white px-4 py-2 rounded-lg hover:bg-[#5a4a4a] transition-colors">
+                                Order Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg fade-in">
+                    <div class="h-48 product-gradient-4 flex items-center justify-center">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2 traditional-font">Multi Millet Adai Mix</h3>
+                            <p class="text-white text-opacity-90">Protein-rich</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Crispy, protein-rich adai packed with the goodness of 9 millets & dals.</p>
+                        <p class="text-gray-700 font-semibold mb-2">Benefits: High protein, weight-loss friendly.</p>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-xl font-bold text-gray-800">₹269</span>
+                            <a href="https://wa.me/918300411270?text=Hi,%20I%20would%20like%20to%20order%20Multi%20Millet%20Adai%20Mix" class="bg-[#715A5A] text-white px-4 py-2 rounded-lg hover:bg-[#5a4a4a] transition-colors">
+                                Order Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg fade-in">
+                    <div class="h-48 product-gradient-5 flex items-center justify-center">
+                        <div class="text-white text-center p-4">
+                            <h3 class="text-2xl font-bold mb-2 traditional-font">Multi Millet Paniyaram Mix</h3>
+                            <p class="text-white text-opacity-90">Kid-friendly</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Soft, tasty paniyarams that kids love—and healthy enough for everyday breakfast!</p>
+                        <p class="text-gray-700 font-semibold mb-2">Benefits: Iron-rich, gut-friendly, wholesome.</p>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-xl font-bold text-gray-800">₹259</span>
+                            <a href="https://wa.me/918300411270?text=Hi,%20I%20would%20like%20to%20order%20Multi%20Millet%20Paniyaram%20Mix" class="bg-[#715A5A] text-white px-4 py-2 rounded-lg hover:bg-[#5a4a4a] transition-colors">
+                                Order Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 - Custom Order -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg fade-in border-2 border-dashed border-gray-300">
+                    <div class="h-48 bg-gray-100 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <i class="fas fa-plus-circle text-4xl text-gray-400 mb-4"></i>
+                            <h3 class="text-2xl font-bold text-gray-700 mb-2 traditional-font">Custom Order</h3>
+                            <p class="text-gray-600">Request a special item</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Looking for something specific? We can prepare custom orders of traditional South Indian snacks.</p>
+                        <div class="flex justify-center">
+                            <a href="#contact" class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Redesigned Why Choose Us Section -->
+    <section class="py-20 bg-[#D3DAD9]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 traditional-font">Why Choose PaatiFood?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We bring you the authentic taste of South India with quality you can trust.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 mx-auto bg-[#D3DAD9] rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-mortar-pestle text-2xl text-[#715A5A]"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Grandma-style Recipes</h3>
+                    <p class="text-gray-600 text-sm">Authentic recipes passed down through generations</p>
+                </div>
+                
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 mx-auto bg-[#D3DAD9] rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-leaf text-2xl text-[#715A5A]"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">100% Natural Ingredients</h3>
+                    <p class="text-gray-600 text-sm">No preservatives or artificial ingredients</p>
+                </div>
+                
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 mx-auto bg-[#D3DAD9] rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-ban text-2xl text-[#715A5A]"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">No Maida, No White Sugar</h3>
+                    <p class="text-gray-600 text-sm">Healthier alternatives for better nutrition</p>
+                </div>
+                
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 mx-auto bg-[#D3DAD9] rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-fire text-2xl text-[#715A5A]"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Traditionally Roasted</h3>
+                    <p class="text-gray-600 text-sm">Authentic preparation methods for better flavor</p>
+                </div>
+                
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 mx-auto bg-[#D3DAD9] rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-prescription-bottle text-2xl text-[#715A5A]"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Preservative-Free</h3>
+                    <p class="text-gray-600 text-sm">Pure ingredients without harmful additives</p>
+                </div>
+                
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 mx-auto bg-[#D3DAD9] rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-flask text-2xl text-[#715A5A]"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Chemical-Free</h3>
+                    <p class="text-gray-600 text-sm">No artificial colors, flavors or chemicals</p>
+                </div>
+                
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 mx-auto bg-[#D3DAD9] rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-clock text-2xl text-[#715A5A]"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Ready in Minutes</h3>
+                    <p class="text-gray-600 text-sm">Quick preparation for busy lifestyles</p>
+                </div>
+                
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 mx-auto bg-[#D3DAD9] rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-2xl text-[#715A5A]"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Kid & Elder Friendly</h3>
+                    <p class="text-gray-600 text-sm">Suitable for all age groups</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Redesigned Reviews Section -->
+    <section id="reviews" class="py-20 review-section text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold mb-4 traditional-font">Customer Reviews</h2>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto">See what our customers are saying about PaatiFood</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="review-card bg-white bg-opacity-10 p-6 rounded-2xl shadow-lg backdrop-blur-sm fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-[#D3DAD9] rounded-full flex items-center justify-center text-[#715A5A] font-bold">D</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">Divya</h4>
+                            <p class="opacity-80">Coimbatore</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="opacity-90">"My kids love PaatiFood pancake mix. No more junk food cravings!"</p>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="review-card bg-white bg-opacity-10 p-6 rounded-2xl shadow-lg backdrop-blur-sm fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-[#D3DAD9] rounded-full flex items-center justify-center text-[#715A5A] font-bold">A</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">Arun</h4>
+                            <p class="opacity-80">Chennai</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="opacity-90">"The herbal health mix is excellent. Feel energized and fresh."</p>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="review-card bg-white bg-opacity-10 p-6 rounded-2xl shadow-lg backdrop-blur-sm fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-[#D3DAD9] rounded-full flex items-center justify-center text-[#715A5A] font-bold">P</div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">Priya</h4>
+                            <p class="opacity-80">Bangalore</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="opacity-90">"The Samai Pongal mix is a lifesaver for busy mornings. Tastes just like traditional Pongal!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Redesigned Contact Section -->
+    <section id="contact" class="py-20 contact-section">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 traditional-font">Get In Touch</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Have questions or want to place a custom order? Reach out to us!</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/2 fade-in">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 traditional-font">Contact Information</h3>
+                        
+                        <div class="mb-6 flex items-start">
+                            <div class="w-12 h-12 bg-[#D3DAD9] rounded-full flex items-center justify-center text-[#715A5A] mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Phone</h4>
+                                <p class="text-gray-600">8300411270</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6 flex items-start">
+                            <div class="w-12 h-12 bg-[#D3DAD9] rounded-full flex items-center justify-center text-[#715A5A] mr-4">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">WhatsApp</h4>
+                                <a href="https://wa.me/918300411270" class="text-gray-600 hover:text-[#715A5A]">Click to Order</a>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6 flex items-start">
+                            <div class="w-12 h-12 bg-[#D3DAD9] rounded-full flex items-center justify-center text-[#715A5A] mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Email</h4>
+                                <p class="text-gray-600">paatifood@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex space-x-4 mt-8">
+                            <a href="https://wa.me/918300411270" class="w-12 h-12 bg-[#715A5A] rounded-full flex items-center justify-center text-white hover:bg-[#5a4a4a] transition-colors pulse">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://www.instagram.com/paatifoods?igsh=MzR6emlidnV0YXhi" class="w-12 h-12 bg-[#715A5A] rounded-full flex items-center justify-center text-white hover:bg-[#5a4a4a] transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com/paatfood" class="w-12 h-12 bg-[#715A5A] rounded-full flex items-center justify-center text-white hover:bg-[#5a4a4a] transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 fade-in">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 traditional-font">Send Us a Message</h3>
+                        
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#715A5A]" required>
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#715A5A]" required>
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#715A5A]">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#715A5A]" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-[#715A5A] text-white py-3 rounded-lg font-bold hover:bg-[#5a4a4a] transition-colors pulse">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#37353E] text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-[#715A5A] rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <span class="ml-3 text-xl font-bold traditional-font">Paati<span class="text-[#D3DAD9]">Food</span></span>
+                    </div>
+                    <p class="mt-4 text-gray-400 max-w-md">Tradition in Every Spoon – Pure • Healthy • Millet-Based Goodness</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="#products" class="text-gray-400 hover:text-white transition-colors">Shop</a>
+                    <a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 PaatiFood. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918300411270" class="fixed bottom-6 right-6 w-14 h-14 bg-[#715A5A] rounded-full flex items-center justify-center text-white shadow-lg hover:bg-[#5a4a4a] transition-colors z-40 bounce">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-6 left-6 w-12 h-12 bg-[#37353E] rounded-full flex items-center justify-center text-white shadow-lg hover:bg-[#2a2830] transition-colors z-40 opacity-0">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fade in elements on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Check on load
+            fadeInOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+            
+            // Scroll to top button
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.remove('opacity-0');
+                } else {
+                    scrollToTopBtn.classList.add('opacity-0');
+                }
+            });
+            
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // In a real implementation, this would send the form data to a server
+                // For this demo, we'll just show an alert
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
